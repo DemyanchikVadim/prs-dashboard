@@ -3,10 +3,10 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import {
   RECEIVE_REPORTS,
   SET_REPORTS
-} from '../constants/AppConstants';
+} from '../actions/AppActions';
 import {
   fetchReports,
-} from '../actions/AppActions';
+} from '../api/api';
 
 function* loadReports() {
   try {

@@ -1,4 +1,4 @@
-import { RECEIVE_REPORTS, LINK_DELETED } from '../constants/AppConstants';
+import { RECEIVE_REPORTS, LINK_DELETED } from '../actions/AppActions';
 
 export default function reports(state = [], action = 1 ) {
   console.log(action);

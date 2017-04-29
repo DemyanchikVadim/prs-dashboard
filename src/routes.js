@@ -8,7 +8,7 @@ import Simple from './containers/Simple/Simple';
 import Charts from './views/Charts/'
 import Dashboard from './views/Dashboard/'
 import Buttons from './views/Components/Buttons/'
-import One from './containers/Reports/ReportsPage'
+import One from './containers/Reports/ReportsPageContainer'
 import Cards from './views/Components/Cards/'
 import Forms from './views/Components/Forms/'
 import Modals from './views/Components/Modals/'

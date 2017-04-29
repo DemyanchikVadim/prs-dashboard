@@ -1,14 +1,14 @@
 import {
   OPEN_MODAL_DIALOG,
   CLOSE_MODAL_DIALOG,
-} from '../../constants/AppConstants';
+} from '../../actions/AppActions';
 
-const modalDialog = (state = {}, action) => {
+const modalDialog = (state = false, action) => {
   switch (action.type) {
     case OPEN_MODAL_DIALOG:
       return action.modalConfig;
     case CLOSE_MODAL_DIALOG:
-      return {};
+      return action.modalConfig;
     default:
       return state;
   }
