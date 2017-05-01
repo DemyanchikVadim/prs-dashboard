@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function ReportCard({report, openModal}) {
   return (
@@ -23,5 +24,5 @@ export default function ReportCard({report, openModal}) {
 }
 
 ReportCard.propTypes = {
-  report: React.PropTypes.object.isRequired
+  report: PropTypes.object.isRequired
 };

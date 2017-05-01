@@ -8,7 +8,7 @@ class ReportsPage extends React.Component {
     setReports();
   }
   render() {
-    const { actions, modalConfig } = this.props;
+    const { actions} = this.props;
     return (
       <div className="row content">
         <ReportsTable reports={this.props.reports} openModal={actions.openModal}/>
@@ -16,9 +16,5 @@ class ReportsPage extends React.Component {
     );
   }
 }
-
-ReportsPage.propTypes = {
-  reports: React.PropTypes.array.isRequired,
-};
 
 export default ReportsPage;

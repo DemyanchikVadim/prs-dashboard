@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReportGard from './OneCard';
 
 export default function One({ reports, deleteLink, openModal }) {
@@ -20,5 +21,5 @@ export default function One({ reports, deleteLink, openModal }) {
 }
 
 One.propTypes = {
-  reports: React.PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
 };

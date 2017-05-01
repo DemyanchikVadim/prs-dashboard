@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import  PropTypes from 'prop-types';
 import { Dropdown, DropdownMenu, DropdownItem } from 'reactstrap';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/AppActions';
 
 class Header extends Component {
 
@@ -7,6 +10,7 @@ class Header extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.logout = this.logout.bind(this);
     this.state = {
       dropdownOpen: false
     };
@@ -29,6 +33,10 @@ class Header extends Component {
     document.body.classList.toggle('sidebar-mobile-show');
   }
 
+  logout(e) {
+    e.preventDefault();
+    this.props.logout();
+  };
 
   render() {
     return (
@@ -39,28 +47,19 @@ class Header extends Component {
           <li className="nav-item">
             <a className="nav-link navbar-toggler sidebar-toggler" onClick={this.sidebarToggle} href="#">&#9776;</a>
           </li>
-          <li className="nav-item px-3">
-            <a className="nav-link" href="#">Dashboard</a>
-          </li>
-          <li className="nav-item px-3">
-            <a className="nav-link" href="#">Users</a>
-          </li>
-          <li className="nav-item px-3">
-            <a className="nav-link" href="#">Settings</a>
-          </li>
         </ul>
         <ul className="nav navbar-nav ml-auto">
           <li className="nav-item d-md-down-none">
-            <a className="nav-link" href="#"><i className="icon-bell"></i><span className="badge badge-pill badge-danger">5</span></a>
+            <a className="nav-link" href="#"><i className="icon-bell"></i><span className="badge badge-pill badge-danger">554</span></a>
           </li>
+          <a href="#" onClick={this.logout}>Выйти</a>
           <li className="nav-item">
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <a onClick={this.toggle} className="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded={this.state.dropdownOpen}>
-                <img src={'img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
                 <span className="d-md-down-none">admin</span>
               </a>
               <DropdownMenu className="dropdown-menu-right">
-                <DropdownItem><i className="fa fa-lock"></i> Logout</DropdownItem>
+                <DropdownItem><i className="fa fa-lock"></i> <a href="#" onClick={this.logout}>Выйти</a></DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </li>
@@ -70,4 +69,14 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  logout: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+export default connect(mapStateToProps, { logout })(Header);

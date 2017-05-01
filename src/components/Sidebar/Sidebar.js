@@ -39,6 +39,9 @@ class Sidebar extends Component {
             <li className="nav-item">
               <Link to={'/rules'} className="nav-link" activeClassName="active"><i className="icon-calculator"></i> Правила</Link>
             </li>
+            <li className="nav-item">
+              <Link to={'/login'} className="nav-link" activeClassName="active"><i className="icon-calculator"></i> Управление</Link>
+            </li>
             <li className="nav-title">
               UI Elements
             </li>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // Containers
 import App from './containers/App/App';
@@ -23,10 +23,13 @@ import Register from './views/Pages/Register/'
 import Page404 from './views/Pages/Page404/'
 import Page500 from './views/Pages/Page500/'
 import Widgets from './views/Widgets/'
+import LoginPage from './components/Login/LoginPage'
+
+import requireAuth from './utils/requireAuth';
 
 export default (
-  <Router history={hashHistory}>
-    <Route path="/" name="Home" component={App}>
+  <Router history={browserHistory}>
+    <Route path="/" name="Home" component={requireAuth(App)}>
       <IndexRoute component={Dashboard}/>
       <Route path="dashboard" name="Main" component={Dashboard}/>
       <Route path="reports/" name="Reports">
@@ -59,6 +62,7 @@ export default (
       <Route path="widgets" name="Widgets" component={Widgets}/>
       <Route path="charts" name="Charts" component={Charts}/>
     </Route>
+    <Route path="loginpage" name="LoginPage" component={LoginPage}></Route>
     <Route path="pages/" name="Pages" component={Simple}>
       <IndexRoute component={Page404}/>
       <Route path="login" name="Login Page" component={Login}/>
