@@ -39,8 +39,19 @@ class Sidebar extends Component {
             <li className="nav-item">
               <Link to={'/rules'} className="nav-link" activeClassName="active"><i className="icon-calculator"></i> Правила</Link>
             </li>
-            <li className="nav-item">
-              <Link to={'/login'} className="nav-link" activeClassName="active"><i className="icon-calculator"></i> Управление</Link>
+            <li className={this.activeRoute("/administrations")}>
+              <a className="nav-link nav-dropdown-toggle" href="#" onClick={this.handleClick.bind(this)}><i className="icon-puzzle"></i> Управление</a>
+              <ul className="nav-dropdown-items">
+                <li className="nav-item">
+                  <Link to={'/login'} className="nav-link" activeClassName="active"><i className="icon-puzzle"></i> Логин</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/signup'} className="nav-link" activeClassName="active"><i className="icon-puzzle"></i> Регистрация</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/users'} className="nav-link" activeClassName="active"><i className="icon-puzzle"></i> Пользователи</Link>
+                </li>
+              </ul>
             </li>
             <li className="nav-title">
               UI Elements

@@ -52,7 +52,6 @@ class Header extends Component {
           <li className="nav-item d-md-down-none">
             <a className="nav-link" href="#"><i className="icon-bell"></i><span className="badge badge-pill badge-danger">554</span></a>
           </li>
-          <a href="#" onClick={this.logout}>Выйти</a>
           <li className="nav-item">
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <a onClick={this.toggle} className="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded={this.state.dropdownOpen}>
