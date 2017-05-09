@@ -11,13 +11,13 @@ export default function(ComposedComponent) {
           type: 'error',
           text: 'Для доступа к этой странице вамvvdas необходимо войти в систему'
         });
-        this.context.router.push('/loginpage');
+        this.context.router.push('/login');
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.isAuthenticated) {
-        this.context.router.push('/loginpage');
+        this.context.router.push('/login');
       }
     }
 

@@ -1,17 +1,29 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-// Containers
+/** Containers **/
 import App from './containers/App/App';
 import Simple from './containers/Simple/Simple';
 
-/** Components **/
+/** Users **/
 import SignupPage from './components/Signup/SignupPage';
-import LoginPage from './components/Login/LoginPage'
-import One from './containers/Reports/ReportsPageContainer'
-import Page404 from './views/Pages/Page404/Page404'
-import Instuctions from './components/Instructions/Instuctions'
+import LoginPage from './components/Login/LoginPage';
+import Page404 from './views/Pages/Page404/Page404';
 
+/** Reports **/
+import CrosswalkContainer from './containers/Reports/ReportsPageContainer';
+
+/** Rules **/
+import RulesPage from './components/Rules/RulesPage';
+
+/** Instructions **/
+import Crosswalk from './components/Instructions/Crosswalk';
+import Sidewalk from './components/Instructions/Sidewalk';
+import Invalid from './components/Instructions/Invalid';
+import Forbidden from './components/Instructions/Forbidden';
+import Secondrow from './components/Instructions/Secondrow';
+
+/** Components **/
 import Charts from './views/Charts/'
 import Dashboard from './views/Dashboard/Dashboard'
 import Buttons from './views/Components/Buttons/'
@@ -37,17 +49,21 @@ export default (
       <IndexRoute component={Dashboard}/>
       <Route path="dashboard" name="dashboard" component={Dashboard}/>
       <Route path="reports/" name="Заявки">
-        <IndexRoute component={One}/>
-        <Route path="one" name="One" component={One}/>
-        <Route path="cards" name="Cards" component={Cards}/>
-        <Route path="forms" name="Forms" component={Forms}/>
-        <Route path="modals" name="Modals" component={Modals}/>
-        <Route path="social-buttons" name="Social Buttons" component={SocialButtons}/>
-        <Route path="switches" name="Swithces" component={Switches}/>
-        <Route path="tables" name="Tables" component={Tables}/>
-        <Route path="tabs" name="Tabs" component={Tabs}/>
+        <IndexRoute component={CrosswalkContainer}/>
+        <Route path="crosswalk" name="crosswalk" component={CrosswalkContainer}/>
       </Route>
-      <Route path="rules" name="Иструкции" components={Instuctions}/>
+      <Route path="instructions" name="Иструкции">
+        <IndexRoute component={Crosswalk}/>
+        <Route path="crosswalk" name="На переходе" component={Crosswalk}/>
+        <Route path="sidewalk" name="На тратуаре" component={Sidewalk}/>
+        <Route path="invalid" name="На местах для инвалидов" component={Invalid}/>
+        <Route path="forbidden" name="Под знаком “Остановка запрещена" component={Forbidden}/>
+        <Route path="secondrow" name="Стоянка во втором ряду" component={Secondrow}/>
+      </Route>
+      <Route path="rules" name="ППД" components={RulesPage}>
+        <IndexRoute component={RulesPage}/>
+      </Route>
+      /** Components **/
       <Route path="components/" name="Components">
         <IndexRoute component={Buttons}/>
         <Route path="buttons" name="Buttons" component={Buttons}/>

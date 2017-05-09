@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import one from '../../../public/img/1.png';
-import two from '../../../public/img/2.png';
-import three from '../../../public/img/3.png';
-import four from '../../../public/img/4.png';
+import one from '../../../public/img/invalid/1.JPG';
+import two from '../../../public/img/invalid/2.JPG';
+import three from '../../../public/img/invalid/3.JPG';
+import four from '../../../public/img/invalid/4.JPG';
 
-class Instuctions extends Component {
+class Invalid extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <div><h2><b>Стоянка на тратуаре</b></h2></div>
+        <div><h2><b>На местах для инвалидов</b></h2></div>
         <br />
         <span>На фото должно быть видно:</span>
-        <div>1: Cамо нарушение и номер авто</div>
+        <div>1: Знак и номер автомобиля. </div>
         <img src={one} alt="one" />
+        <br />
         <br />
         <div>2: Общий план с автомобилем и объектом с географической привязкой</div>
         <img src={two} alt="two"/>
         <br />
-        <div>3: Адрес нарушения.</div>
+        <br />
+        <div>3:  Или адресную табличку ближайшего к месту нарушения дома</div>
         <img src={three} alt="three"/>
+        <br />
         <br />
         <div>4: Отсутствие водителя в автомобиле.</div>
         <img src={four} alt="four"/>
@@ -27,4 +30,4 @@ class Instuctions extends Component {
   }
 }
 
-export default Instuctions;
+export default Invalid;
