@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import one from '../../../public/img/perexod/1.JPG';
 import two from '../../../public/img/perexod/2.JPG';
 import three from '../../../public/img/perexod/3.JPG';
-import four from '../../../public/img/perexod/3.JPG';
+import four from '../../../public/img/perexod/4.JPG';
 
 class Crosswalk extends Component {
   render() {

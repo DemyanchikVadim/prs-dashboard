@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import  PropTypes from 'prop-types';
 import { Dropdown, DropdownMenu, DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/AppActions';
+import { logout,  setReports } from '../../actions/AppActions';
+import { bindActionCreators } from 'redux';
 
 class Header extends Component {
 
@@ -15,6 +16,12 @@ class Header extends Component {
       dropdownOpen: false
     };
   }
+
+  componentDidMount() {
+    const { setReports } = this.props.actions;
+    setReports();
+  }
+
 
   toggle(e) {
     e.preventDefault();
@@ -35,10 +42,11 @@ class Header extends Component {
 
   logout(e) {
     e.preventDefault();
-    this.props.logout();
+    this.props.actions.logout();
   };
 
   render() {
+    const { reports } = this.props;
     return (
       <header className="app-header navbar">
         <button className="navbar-toggler mobile-sidebar-toggler d-lg-none" onClick={this.mobileSidebarToggle} type="button">&#9776;</button>
@@ -50,7 +58,7 @@ class Header extends Component {
         </ul>
         <ul className="nav navbar-nav ml-auto">
           <li className="nav-item d-md-down-none">
-            <a className="nav-link" href="#"><i className="icon-bell"></i><span className="badge badge-pill badge-danger">554</span></a>
+            <a className="nav-link" href="#"><i className="icon-bell"></i><span className="badge badge-pill badge-danger">{reports.length}</span></a>
           </li>
           <li className="nav-item">
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -72,10 +80,18 @@ Header.propTypes = {
   logout: PropTypes.func.isRequired
 };
 
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    setReports,
+    logout,
+  }, dispatch),
+});
+
 function mapStateToProps(state) {
   return {
     auth: state.auth,
+    reports: state.reports,
   };
 }
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

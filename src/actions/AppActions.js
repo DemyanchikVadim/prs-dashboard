@@ -23,8 +23,9 @@ export function setReports() {
   };
 }
 
-export const closeModal = () => ({
+export const closeModal = (configType,) => ({
   type: CLOSE_MODAL_DIALOG,
+  configType,
 });
 
 export const openModal = modalConfig => ({

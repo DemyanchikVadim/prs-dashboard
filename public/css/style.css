@@ -8821,8 +8821,21 @@ hr.transparent {
   height: 100%;
 }
 
+.row-auto {
+  display: inline-block;
+}
+
+.auto-img-small {
+  width: 25%;
+  height: 25%;
+}
+
 .report {
   width: 1000px;
+}
+
+.map {
+  width: 750px;
 }
 
 .open > a {
