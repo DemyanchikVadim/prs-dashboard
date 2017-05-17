@@ -1,10 +1,8 @@
-import setAuthorizationToken from '../utils/setAuthorizationToken'
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import setAuthorizationToken from '../utils/setAuthorizationToken'
 
-export const SET_REPORTS = 'SET_REPORTS';
-export const LINK_DELETED = 'LINK_DELETED';
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+/** Flash actions **/
 export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
 export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';
 
@@ -14,8 +12,11 @@ export const OPEN_MODAL_DIALOG = 'OPEN_MODAL_DIALOG';
 
 /** Reports actions **/
 export const RECEIVE_REPORTS = 'RECEIVE_REPORTS';
+export const SET_REPORTS = 'SET_REPORTS';
+export const REPORT_DELETED = 'REPORT_DELETED';
 
 /** Auth actions **/
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 export function setReports() {
   return {
@@ -33,10 +34,10 @@ export const openModal = modalConfig => ({
   modalConfig,
 });
 
-export function linkDeleted(linkId) {
+export function reportDeleted(reportId) {
   return {
-    type: LINK_DELETED,
-    linkId
+    type: REPORT_DELETED,
+    reportId
   }
 }
 
@@ -64,7 +65,7 @@ export function deleteFlashMessage(id) {
 export function logout() {
   return dispatch => {
     localStorage.removeItem('jwtToken');
-    console.log("remove token")
+    console.log("remove token");
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
   }
@@ -86,5 +87,12 @@ export function login(data) {
 export function userSignupRequest(data) {
   return dispatch => {
     return axios.post('/api/users', data)
+  }
+}
+
+export function deleteReport(id) {
+  return dispatch => {
+    return axios.delete(`/api/reports/${id}`)
+      .then(data => dispatch(reportDeleted(id)));
   }
 }

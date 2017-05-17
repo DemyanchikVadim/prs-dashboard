@@ -2,7 +2,7 @@ import React from 'react';
 import ReportsList from '../../components/Reports/ReportsList';
 import Modal from '../../components/Modal/Modal';
 import { connect } from 'react-redux';
-import { setReports, openModal, closeModal } from '../../actions/AppActions';
+import { setReports, openModal, closeModal, deleteReport } from '../../actions/AppActions';
 
 import { bindActionCreators } from 'redux';
 
@@ -15,10 +15,10 @@ class ReportsPage extends React.Component {
 
   render() {
     const { modalConfig } = this.props;
-    const { openModal, closeModal } = this.props.actions;
+    const { openModal, closeModal, deleteReport } = this.props.actions;
     return (
       <div className="row content">
-        <ReportsList reports={this.props.reports} openModal={openModal} />
+        <ReportsList reports={this.props.reports} openModal={openModal} deleteReport={deleteReport} />
         <Modal modalConfig={modalConfig} closeModal={closeModal} />
       </div>
     );
@@ -29,7 +29,8 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     setReports,
     openModal,
-    closeModal
+    closeModal,
+    deleteReport,
   }, dispatch),
 });
 

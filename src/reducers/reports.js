@@ -1,10 +1,10 @@
-import { RECEIVE_REPORTS, LINK_DELETED } from '../actions/AppActions';
+import { RECEIVE_REPORTS, REPORT_DELETED } from '../actions/AppActions';
 
 export default function reports(state = [], action = 1 ) {
   console.log(action);
   switch (action.type) {
-    case LINK_DELETED:
-      return state.filter(item => item._id !== action.linkId);
+    case REPORT_DELETED:
+      return state.filter(item => item._id !== action.reportId);
 
     case RECEIVE_REPORTS:
       return action.reports;

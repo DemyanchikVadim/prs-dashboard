@@ -22,45 +22,30 @@ class Users extends Component {
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Vishnu Serghei</td>
-                    <td>2012/01/01</td>
-                    <td>Member</td>
+                    <td>Admin</td>
+                    <td>2017/05/07</td>
+                    <td>admin</td>
                     <td>
                       <span className="badge badge-success">Активный</span>
                     </td>
                   </tr>
                   <tr>
-                    <td>Zbyněk Phoibos</td>
-                    <td>2012/02/01</td>
-                    <td>Staff</td>
+                    <td>Vadim</td>
+                    <td>2017/05/07</td>
+                    <td>admin</td>
                     <td>
-                      <span className="badge badge-danger">Забанен</span>
+                      <span className="badge badge-success">Активный</span>
                     </td>
                   </tr>
                   <tr>
-                    <td>Einar Randall</td>
-                    <td>2012/02/01</td>
-                    <td>Admin</td>
+                    <td>Vadim2</td>
+                    <td>2017/05/07</td>
+                    <td>admin</td>
                     <td>
-                      <span className="badge badge-default">Неактивный</span>
+                      <span className="badge badge-success">Активный</span>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Félix Troels</td>
-                    <td>2012/03/01</td>
-                    <td>Member</td>
-                    <td>
-                      <span className="badge badge-warning">Ожидает</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aulus Agmundr</td>
-                    <td>2012/01/21</td>
-                    <td>Staff</td>
-                    <td>
-                      <span className="badge badge-success">Active</span>
-                    </td>
-                  </tr>
+
                   </tbody>
                 </table>
               </div>
